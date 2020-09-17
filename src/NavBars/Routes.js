@@ -4,14 +4,18 @@ import Accessories from "./Accessories";
 import Cart from "./Carts";
 import Layout from "../Components/Layout"
 import React, { Component } from 'react';
-import styled from "styled-components"
+import styled from "styled-components";
+import {FaShoppingCart} from 'react-icons/fa';
 import {Navbar,Nav,NavDropdown} from 'react-bootstrap';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Link
 
 } from "react-router-dom";
+
+// style component
 
 const Styles = styled.div`
   .navbar {
@@ -38,7 +42,7 @@ class Routes extends Component {
         <div>
  
 
-<Navbar expand="xlg">
+<Navbar expand="lg">
   <Navbar.Brand href="/">PHONE SHOP</Navbar.Brand>
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
@@ -46,7 +50,7 @@ class Routes extends Component {
       <Nav.Link href="/">Home</Nav.Link>
       <Nav.Link href="/Phones">Phones</Nav.Link>
       <Nav.Link href="/Accessories">Accessories</Nav.Link>
-      <Nav.Link href="/Cart">Cart</Nav.Link>
+     
 
 <NavDropdown title="Phones" id="basic-nav-dropdown">
         <NavDropdown.Item href="#action/3.1">Samsung</NavDropdown.Item>
@@ -54,6 +58,10 @@ class Routes extends Component {
         <NavDropdown.Item href="#action/3.3">Others</NavDropdown.Item>
         <NavDropdown.Divider />
       </NavDropdown>
+      {/* <Nav.Link className="cart" href="/Cart"><FaShoppingCart/>Cart</Nav.Link> */}
+      <div className="carticon">
+      <Navbar.Brand   className="cart" href="cart">Cart<FaShoppingCart/></Navbar.Brand>
+      </div>
     </Nav>
     {/* <Form inline>
       <FormControl type="text" placeholder="Search" className="mr-sm-2" />
@@ -61,6 +69,7 @@ class Routes extends Component {
     </Form> */}
   </Navbar.Collapse>
 </Navbar>
+
 
           
           <Switch>
@@ -74,10 +83,13 @@ class Routes extends Component {
           </Switch>
           </div>
         </Router>
+        
         </Layout>
       </React.Fragment>
       </Styles>
       </div>
+     
+      
      
     );
        
