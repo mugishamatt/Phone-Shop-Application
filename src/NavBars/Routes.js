@@ -3,15 +3,17 @@ import Phones from "./Phones";
 import Accessories from "./Accessories";
 import Cart from "./Carts";
 import Layout from "../Components/Layout"
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import styled from "styled-components";
 import {FaShoppingCart} from 'react-icons/fa';
 import {Navbar,Nav,NavDropdown} from 'react-bootstrap';
+import {connect} from "react-redux";
+import {getNumbers} from "../actions/getActions"
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  
 
 } from "react-router-dom";
 
@@ -25,14 +27,19 @@ const Styles = styled.div`
   a, .navbar-brand, .navbar-nav .nav-link {
     color: #000000;
     &:hover {
-      color: white;
+      color: #ff8000;
       margin-botom:20px;
     }
   }
 `;
 
-class Routes extends Component {
-    render() { 
+const Routes =(props)=> {
+  console.log(props.basketProps)
+
+  useEffect(()=>{
+    getNumbers();
+
+  },[]);
         return ( 
             <div className="App">
                 <Styles>
@@ -60,7 +67,7 @@ class Routes extends Component {
       </NavDropdown>
       {/* <Nav.Link className="cart" href="/Cart"><FaShoppingCart/>Cart</Nav.Link> */}
       <div className="carticon">
-      <Navbar.Brand   className="cart" href="cart">Cart<FaShoppingCart/></Navbar.Brand>
+        <Navbar.Brand   className="cart" href="cart">Cart<FaShoppingCart/><span>{props.basketProps.basketNumbers}</span></Navbar.Brand>
       </div>
     </Nav>
     {/* <Form inline>
@@ -71,16 +78,14 @@ class Routes extends Component {
 </Navbar>
 
 
-          
+          <div>
           <Switch>
-              <div>
             <Route exact path="/" component={Home}/>
             <Route path="/phones" component={Phones}/>
-
             <Route path="/accessories" component={Accessories}/>
             <Route path="/cart" component={Cart}/>
-            </div>
           </Switch>
+          </div>
           </div>
         </Router>
         
@@ -89,11 +94,11 @@ class Routes extends Component {
       </Styles>
       </div>
      
-      
-     
     );
        
     }
-}
- 
-export default Routes;
+
+const mapStateToProps =(state)=>({
+  basketProps:state.basketState
+})
+export default connect(mapStateToProps,{getNumbers})(Routes);
