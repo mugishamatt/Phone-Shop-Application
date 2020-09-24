@@ -23,6 +23,7 @@ import samsung2 from "../Images/samsung2.jpeg"
      Object.keys(basketProps.products).forEach(function(item){
          console.log(item);
          console.log(basketProps.products[item].inCart);
+
          if(basketProps.products[item].inCart){
              productsInCart.push(basketProps.products[item])
 
@@ -33,22 +34,22 @@ import samsung2 from "../Images/samsung2.jpeg"
     //  const productsImages=[iphone1,iphone2,iphone3,iphone4,samsung1,samsung2]
 
     const productsImages=(product)=>{
-        if(product.tagName==='phoneOne'){
+        if(product.tagName==='iphoneOne'){
             return iphone1
         }
-        if(product.tagName==='phoneTwo'){
+        if(product.tagName==='iphoneTwo'){
             return iphone2
         }
-        if(product.tagName==='phoneThree'){
+        if(product.tagName==='iphoneThree'){
             return iphone3
         }
-        if(product.tagName==='phoneFive'){
+        if(product.tagName==='iphoneFive'){
             return iphone4
         }
-        if(product.tagName==='phoneSix'){
+        if(product.tagName==='iphoneSix'){
             return samsung1
         }
-        if(product.tagName==='phoneSeven'){
+        if(product.tagName==='iphoneSeven'){
             return samsung2
         }
     }
@@ -56,13 +57,13 @@ import samsung2 from "../Images/samsung2.jpeg"
     
 
      productsInCart = productsInCart.map((product, index) => {
-        console.log("my product is:")
-        console.log("product")
+        // console.log("my product is:")
+        // console.log("product")
          return(
              <React.Fragment key={index}>
                  <div className="product">
 
-         <AiFillCloseCircle onClick={()=>clearProduct(product.name)} className="deletebtn"/><img src={productsImages(product)}/>
+         <AiFillCloseCircle onClick={()=>clearProduct(product.tagName)} className="deletebtn"/><img src={productsImages(product)}/>
          <span className="sm-hide"> {product.name}</span>
                  </div>
 
