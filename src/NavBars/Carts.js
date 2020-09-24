@@ -57,8 +57,7 @@ const Cart = ({ basketProps, productQuantity, clearProduct }) => {
 
 
     productsInCart = productsInCart.map((product, index) => {
-        // console.log("my product is:")
-        // console.log("product")
+ 
         return (
             <React.Fragment key={index}>
                 <div className="product">

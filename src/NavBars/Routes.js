@@ -77,7 +77,6 @@ const Routes = (props) => {
                   </Navbar.Collapse>
                 </Navbar>
 
-
                 <div>
                   <Switch>
                     <Route exact path="/" component={Home} />
