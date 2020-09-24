@@ -34,9 +34,9 @@ const Jumbo =()=>{
         <Jumbotron fluid className="jumbo">
             <div className="overlay"></div>
   
-    <h1>Fluid jumbotron</h1>
+    {/* <h1>Fluid jumbotron</h1> */}
    
-    <p>phones Avvailables</p> 
+    <h1>phones Availables</h1> 
      {/* <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTHCHG60ltNTjd7OGI6GRupdXe68VQLJbASiQ&usqp=CAU"></img> */}
 
 </Jumbotron>
